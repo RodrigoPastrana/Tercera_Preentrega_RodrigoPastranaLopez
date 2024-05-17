@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear División</title>
+    <title>Divisiones</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,26 +14,31 @@
 
         .container {
             text-align: center;
-            padding-top: 50px; /* Ajusta la cantidad según sea necesario */
+            padding-top: 50px;
         }
 
         h1 {
-            font-size: 48px; /* Ajusta el tamaño del título */
-            margin-bottom: 30px; /* Ajusta el espacio debajo del título */
+            font-size: 48px;
+            margin-bottom: 30px;
         }
 
         .texto {
             font-size: 18px;
-            margin-bottom: 30px; /* Ajusta el espacio debajo del texto */
+            margin-bottom: 30px;
+            font-weight: bold;
         }
 
-        form {
+        .form-container {
             display: inline-block;
             text-align: left;
             padding: 20px;
             border: 2px solid #333;
             border-radius: 10px;
             background-color: #fff;
+            width: 300px;
+            vertical-align: top;
+            height: 400px; /* Ajusta la altura según sea necesario */
+            margin: 0 50px; /* Añadir espacio entre los contenedores */
         }
 
         input[type="text"] {
@@ -43,7 +48,7 @@
             box-sizing: border-box;
         }
 
-        input[type="submit"] {
+        input[type="submit"], button {
             background-color: #4CAF50;
             color: white;
             padding: 10px 20px;
@@ -52,21 +57,50 @@
             cursor: pointer;
         }
 
-        input[type="submit"]:hover {
+        input[type="submit"]:hover, button:hover {
             background-color: #45a049;
+        }
+
+        .results {
+            text-align: left;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Divisiónes</h1>
-        <p class="texto">Crea una nueva división:</p>
-        <form action="{% url 'crear_division' %}" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Crear División">
-        </form>
+        <h1>Divisiones</h1>
+        
+        <div class="form-container">
+            <p class="texto">Crea una nueva división:</p>
+            <form action="{% url 'crear_division' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Crear División">
+            </form>
+        </div>
+        
+        <div class="form-container">
+            <h2>Buscar División</h2>
+            <form method="get" action="{% url 'buscar_division' %}">
+                {{ form.as_p }}
+                <button type="submit">Buscar</button>
+            </form>
+
+            {% if resultados %}
+                <div class="results">
+                    <h3>Resultados:</h3>
+                    <ul>
+                        {% for division in resultados %}
+                            <li>{{ division.nombre }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>
+
+
 
