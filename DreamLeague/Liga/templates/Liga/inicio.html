@@ -4,13 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dream League</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding-top: 100px; /* Ajusta la cantidad según sea necesario */
+        }
+
+        .titulo {
+            font-size: 72px;
+            margin-bottom: 50px; /* Ajusta la cantidad según sea necesario */
+        }
+
+        .dream-league {
+            font-weight: bold;
+            color: #e90000ee; /* Cambia el color según sea necesario */
+        }
+
+        .opciones {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 200px; /* Ajusta la cantidad según sea necesario */
+        }
+
+        .opcion {
+            padding: 20px;
+            border: 2px solid #333; /* Cambia el color según sea necesario */
+            border-radius: 10px;
+            background-color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .opcion:hover {
+            background-color: #ccc; /* Cambia el color al pasar el ratón por encima */
+        }
+
+        .opcion a {
+            text-decoration: none;
+            color: #333;
+            font-size: 24px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bienvenido a Dream League</h1>
-    <ul>
-        <li><a href="{% url 'crear_division' %}">Divisiónes</a></li>
-        <li><a href="{% url 'crear_equipo' %}">Equipos</a></li>
-        <li><a href="{% url 'crear_jugador' %}">Jugadores</a></li>
-    </ul>
+    <div class="container">
+        <h1 class="titulo">Bienvenidos a <span class="dream-league">Dream League</span></h1>
+    </div>
+    <div class="opciones">
+        <div class="opcion"><a href="{% url 'crear_division' %}">Divisiónes</a></div>
+        <div class="opcion"><a href="{% url 'crear_equipo' %}">Equipos</a></div>
+        <div class="opcion"><a href="{% url 'crear_jugador' %}">Jugadores</a></div>
+    </div>
 </body>
 </html>
+
+

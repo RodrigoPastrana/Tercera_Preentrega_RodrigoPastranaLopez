@@ -4,13 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear División</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            padding-top: 50px; /* Ajusta la cantidad según sea necesario */
+        }
+
+        h1 {
+            font-size: 48px; /* Ajusta el tamaño del título */
+            margin-bottom: 30px; /* Ajusta el espacio debajo del título */
+        }
+
+        .texto {
+            font-size: 18px;
+            margin-bottom: 30px; /* Ajusta el espacio debajo del texto */
+        }
+
+        form {
+            display: inline-block;
+            text-align: left;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <h1>Crear División</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Crear División</button>
-    </form>
+    <div class="container">
+        <h1>Divisiónes</h1>
+        <p class="texto">Crea una nueva división:</p>
+        <form action="{% url 'crear_division' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Crear División">
+        </form>
+    </div>
 </body>
 </html>
+
