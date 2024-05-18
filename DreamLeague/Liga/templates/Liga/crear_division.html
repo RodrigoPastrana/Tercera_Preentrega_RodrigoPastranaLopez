@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divisiones</title>
+    <title>Ligas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -72,14 +72,14 @@
 </head>
 <body>
     <div class="container">
-        <h1>Divisiones</h1>
+        <h1>Ligas</h1>
         
         <div class="form-container">
-            <p class="texto">Crea una nueva división:</p>
+            <p class="texto">Crea una nueva Liga:</p>
             <form action="{% url 'crear_division' %}" method="post">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input type="submit" value="Crear División">
+                <input type="submit" value="Crear Liga">
             </form>
         </div>
         

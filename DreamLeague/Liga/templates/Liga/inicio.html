@@ -94,10 +94,10 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="titulo">Bienvenidos a <span class="dream-league">Dream League</span></h1>
+        <h1 class="titulo">Bienvenido a <span class="dream-league">Dream League</span></h1>
     </div>
     <div class="opciones">
-        <div class="opcion"><a href="{% url 'crear_division' %}">Divisiónes</a></div>
+        <div class="opcion"><a href="{% url 'crear_division' %}">Ligas</a></div>
         <div class="opcion"><a href="{% url 'crear_equipo' %}">Equipos</a></div>
         <div class="opcion"><a href="{% url 'crear_jugador' %}">Jugadores</a></div>
     </div>
@@ -105,7 +105,7 @@
         <h2>¿Ya tiene creada una liga? Búsquela aquí</h2>
         <form action="{% url 'buscar_division' %}" method="get">
             {% csrf_token %}
-            <input type="text" name="query" placeholder="Buscar División">
+            <input type="text" name="query" placeholder="Buscar Liga">
             <input type="submit" value="Buscar">
         </form>
     </div>

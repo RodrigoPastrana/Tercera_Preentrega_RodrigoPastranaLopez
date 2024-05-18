@@ -13,11 +13,16 @@ class EquipoForm(forms.ModelForm):
         model = Equipo
         fields = ["nombre", "division"]
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["division"].label = "Liga"
+
 
 class JugadorForm(forms.ModelForm):
     class Meta:
         model = Jugador
         fields = ["nombre", "equipo"]
 
+
 class DivisionSearchForm(forms.Form):
-    query = forms.CharField(label='Buscar División', max_length=255)
+    query = forms.CharField(label="Buscar Liga", max_length=255)
