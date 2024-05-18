@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,7 +8,8 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background: url('{% static "Liga/images/Fondo para divisiones app Dream League.jpg" %}') no-repeat center center fixed;
+            background-size: cover;
             margin: 0;
             padding: 0;
         }
@@ -18,7 +20,8 @@
         }
 
         h1 {
-            font-size: 48px;
+            font-size: 60px; /* Tamaño de fuente más grande */
+            color: white; /* Color blanco */
             margin-bottom: 30px;
         }
 
@@ -80,27 +83,7 @@
             </form>
         </div>
         
-        <div class="form-container">
-            <h2>Buscar División</h2>
-            <form method="get" action="{% url 'buscar_division' %}">
-                {{ form.as_p }}
-                <button type="submit">Buscar</button>
-            </form>
-
-            {% if resultados %}
-                <div class="results">
-                    <h3>Resultados:</h3>
-                    <ul>
-                        {% for division in resultados %}
-                            <li>{{ division.nombre }}</li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            {% endif %}
-        </div>
+        
     </div>
 </body>
 </html>
-
-
-
